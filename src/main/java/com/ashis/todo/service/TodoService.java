@@ -58,6 +58,20 @@ public class TodoService {
         }
     }
 
+    void deleteTodo( java.util.Scanner scanner){
+        System.out.println("Enter Todo ID");
+        int id = scanner.nextInt() - 1;
+        if (!this.todoDB.doesIndexExist(id)){
+            System.out.println("ID does not exist.");
+            System.out.println();
+            return;
+        }
+        this.todoDB.deleteTodo(id);
+        System.out.println("Todo deleted successfully.");
+        System.out.println();
+        return;
+    }
+
     void doActionsForOption(int option, java.util.Scanner scanner){
         System.out.printf("Option selected %s", option);
         System.out.println();
@@ -66,6 +80,9 @@ public class TodoService {
                 addTodo(scanner);
                 return;
             case 2:
+                printAllTodos(scanner);
+                return;
+            case 3:
                 printAllTodos(scanner);
                 return;
             default:
