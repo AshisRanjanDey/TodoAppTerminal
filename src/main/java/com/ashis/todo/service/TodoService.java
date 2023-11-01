@@ -83,7 +83,7 @@ public class TodoService {
                 printAllTodos(scanner);
                 return;
             case 3:
-                printAllTodos(scanner);
+                deleteTodo(scanner);
                 return;
             default:
                 System.out.println("Invalid choice. Please try again.");
