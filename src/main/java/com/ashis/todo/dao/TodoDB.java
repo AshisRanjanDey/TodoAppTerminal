@@ -27,4 +27,8 @@ public class TodoDB {
     public boolean doesIndexExist(int index) {
         return index >= 0 && index < this.todos.size() ;
     }
+
+    public void setStatus(int id, String status) {
+        this.todos.get(id).setStatus(status);
+    }
 }

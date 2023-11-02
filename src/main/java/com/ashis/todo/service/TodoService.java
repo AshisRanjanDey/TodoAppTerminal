@@ -16,7 +16,8 @@ public class TodoService {
         System.out.println("1. Add a Todo");
         System.out.println("2. Show the list of current Todos");
         System.out.println("3. Delete Todo");
-        System.out.println("4. Exit");
+        System.out.println("4. Update Todo Status");
+        System.out.println("5. Exit");
         System.out.print("Enter your choice: ");
     }
 
@@ -72,6 +73,23 @@ public class TodoService {
         return;
     }
 
+    void updateTodoStatus(java.util.Scanner scanner){
+        System.out.println("Enter Todo ID");
+        int id = scanner.nextInt() - 1;
+        scanner.nextLine();
+        if (!this.todoDB.doesIndexExist(id)){
+            System.out.println("ID does not exist.");
+            System.out.println();
+            return;
+        }
+        System.out.print("Enter Todo new status: ");
+        String status = scanner.nextLine();
+        this.todoDB.setStatus(id, status);
+        System.out.println("Todo updated successfully.");
+        System.out.println();
+        return;
+    }
+
     void doActionsForOption(int option, java.util.Scanner scanner){
         System.out.printf("Option selected %s", option);
         System.out.println();
@@ -85,6 +103,13 @@ public class TodoService {
             case 3:
                 deleteTodo(scanner);
                 return;
+            case 4:
+                updateTodoStatus(scanner);
+                return;
+            case 5:
+                System.out.println("Exiting the application.");
+                scanner.close();
+                System.exit(0);
             default:
                 System.out.println("Invalid choice. Please try again.");
                 System.out.println();
