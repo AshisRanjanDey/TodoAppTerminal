@@ -50,7 +50,7 @@ public class TodoService {
         System.out.println();
         int index = 1;
         for (Todo t : todos) {
-            System.out.print(String.format("| %s ", index));
+            System.out.print(String.format("| %s ", index++));
             System.out.print(String.format("|   %s   ", t.getName()));
             System.out.print(String.format("|   %s   ", t.getDescription()));
             System.out.print(String.format("|   %s   ", t.getTimestamp()));
@@ -109,6 +109,7 @@ public class TodoService {
             case 5:
                 System.out.println("Exiting the application.");
                 scanner.close();
+                todoDB.saveData();
                 System.exit(0);
             default:
                 System.out.println("Invalid choice. Please try again.");
