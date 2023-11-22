@@ -12,6 +12,7 @@ public class App
     {
 
         System.out.println( "Starting App" );
+        System.out.println("Working Directory = " + System.getProperty("user.dir"));
         //initialize DB
         TodoDB todoDB = new TodoDB();
         TodoService todoServ = new TodoService(todoDB);

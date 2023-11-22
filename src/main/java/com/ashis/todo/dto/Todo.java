@@ -9,9 +9,13 @@ public class Todo {
     private String name;
     private String description;
     private String timestamp;
-
     private String status;
 
+    // Default constructor
+    public Todo() {
+    }
+
+    // Parameterized constructor
     public Todo(String name, String description, String timestamp, String status) {
         this.name = name;
         this.description = description;
